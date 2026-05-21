@@ -220,9 +220,9 @@
         <tr><td><th><td><th><td><td><td><th><th><td><th><th><td><td><th><td><th><td><td><td><td><td><th><th><td><td><th><td><th><th><td><td><th><td><th><td><td><th><td>
         <tr><td><td><th><td><td><td><td><th><th><td><th><th><td><td><th><td><th><th><th><th><th><td><th><th><th><th><th><td><th><th><td><td><th><td><th><td><td><th><th>
     </table>
-    <h1>1.1</h1>
+    <h1>1.2</h1>
     <h2>A MaxCoderz Production</h2>
-    <h3>Ben Ryves 2006</h3>
+    <h3>Ben Ryves 2006&ndash;2026</h3>
     </div>
     
     <div id="gamegrid">
@@ -278,28 +278,54 @@
         </ul>
         
         
-        <h1>Change Log</h1>
-    <ul><li>1.1</li><ul>
-        <li>Fixes</li><ul>
-            <li>16x16 sprite X-wrapping fixed.</li>
-            <li>More secure stack overflow protection.</li> 
-            <li>Converter only strips digits if they are the first character.</li>           
-            <li>Minor archive-related fixes.</li>
+    <h1>Change Log</h1>
+        <ul>
+            <li>1.2
+                <ul>
+                    <li>Fixes
+                        <ul>
+                            <li>Reduced risk of screen corruption when using the 96x64 SCHIP mode on newer calculator models.</li>
+                            <li>Fixed memory leak caused by not properly cleaning up temporary files after running the program with no installed ROM files.</li> 
+                        </ul>
+                    </li>
+                    <li>Features
+                        <ul>
+                            <li>Window and Zoom shortcut keys.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>1.1
+                <ul>
+                    <li>Fixes
+                        <ul>
+                            <li>16x16 sprite X-wrapping fixed.</li>
+                            <li>More secure stack overflow protection.</li> 
+                            <li>Converter only strips digits if they are the first character.</li>           
+                            <li>Minor archive-related fixes.</li>
+                        </ul>
+                    </li>
+                    <li>Features
+                        <ul>
+                            <li>Options to disable x/y wrapping (I hadn't realised that <i>Blitz</i> didn't work with y-wrapping).</li>
+                            <li>Load ROMs to $000, $200, or $600.</li>
+                            <li>Little GUI tweaks (scrollbars).</li>
+                            <li>Pause button.</li>
+                            <li>Contrast adjustment.</li>
+                            <li>Quick save/load state.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>1.0
+                <ul>
+                    <li>Initial Release</li>
+                </ul>
+            </li>
         </ul>
-        <li>Features</li><ul>
-            <li>Options to disable x/y wrapping (I hadn't realised that <i>Blitz</i> didn't work with y-wrapping).</li>
-            <li>Load ROMs to $000, $200, or $600.</li>
-            <li>Little GUI tweaks (scrollbars).</li>
-            <li>Pause button.</li>
-            <li>Contrast adjustment.</li>
-            <li>Quick save/load state.</li>
-        </ul>
-    </ul><li>1.0</li><ul>
-        <li>Initial Release</li></ul>
-    </ul></ul>
         
         
-<h1>Usage</h1>
+    <h1>Usage</h1>
         <p>This package comes with 3 binaries; one for TI-83, and two for TI-83 Plus. Send the one that best matches your calculator model and shell to your calculator using your linking program.</p>
         <p>You won't be able to use this interpreter without having a few CHIP-8 programs installed. I've included a rather large number of them in the ROMs subfolder of this package. Both CHIP-8 and SCHIP programs are sent/run in the same way on the calculator, but I thought it best to split them into subfolders so you can tell the difference (for example) between the two versions of <i>Blinky</i>.</p>
         <p>If you run the program, you should be able to see the installed program in a list, a bit like Ion's main view. Highlight the program you wish to start using the <span id="key" class="blue">&uarr;</span> and <span id="key" class="blue">&darr;</span> keys, then press <span id="key" class="yellow">2nd</span> or <span id="key" class="blue">Enter</span> to run it.</p>
@@ -333,8 +359,8 @@
             <tr><td><span id="key" class="blue">&uarr;</span>/<span id="key" class="blue">&darr;</span></td><td>Change selection</td><td>Adjust Contrast</td><td>Change selection</td></tr>
             <tr><td><span id="key">Del</span></td><td></td><td>Restart</td><td></td></tr>            
             <tr><td><span id="key" class="blue">Y=</span></td><td></td><td></td><td>Set to 0</td></tr>
-            <tr><td><span id="key" class="blue">Window</span></td><td></td><td></td><td>Set to 50</td></tr>
-            <tr><td><span id="key" class="blue">Zoom</span></td><td></td><td></td><td>Set to 100</td></tr>
+            <tr><td><span id="key" class="blue">Window</span></td><td></td><td>Centre display</td><td>Set to 50</td></tr>
+            <tr><td><span id="key" class="blue">Zoom</span></td><td></td><td>Toggle 96x64 SCHIP mode</td><td>Set to 100</td></tr>
             <tr><td><span id="key" class="blue">Trace</span></td><td></td><td>Quick load</td><td>Set to 150</td></tr>
             <tr><td><span id="key" class="blue">Graph</span></td><td></td><td>Quick save</td><td>Set to 200</td></tr>
             <tr><td><span id="key">&nbsp;,&nbsp;</span></td><td></td><td>Pause</td><td></td></tr>
@@ -754,7 +780,7 @@
             <p>Another snake/nibbly clone; in this one, you rotate the direction the snake is heading in increments of 90&deg;.</p>
             <p><span id="key" class="white">2</span>/<span id="key" class="white">3</span> to rotate left/right 90&deg; respectively.</p>
         
-        <h1 />
+        <h1></h1>
         
         </div>
         
