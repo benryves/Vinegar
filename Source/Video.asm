@@ -56,8 +56,8 @@ _use_shrink
 	out ($10),a
 	ld ixl,$80
 	ld a,$80
-	call _lcd_busy
---	out ($10),a
+--	call _lcd_busy
+	out ($10),a
 
 	call _lcd_busy
 	ld a,$20

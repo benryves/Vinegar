@@ -922,12 +922,16 @@ _crop_right
 ; ---------------------------------------------------------------
 ; Safe LCD pause
 ; ---------------------------------------------------------------
+.if platform == ti8x
+_lcd_busy = $B
+.else
 _lcd_busy
 	push af
 	inc hl
 	dec hl
 	pop af
 	ret
+.endif
 
 ; ---------------------------------------------------------------
 ; Pointers used when copying data from RAM(hl)->registers(de)
