@@ -1,0 +1,16 @@
+; TI-83 Plus MirageOS script
+new-calculator ROMs\TI-83 Plus.rom
+activate-slot 0
+reset-calc
+run 6000000
+key-press on 6000000
+send-file $DEBUG_BINARY$
+send-file Shells\MIRAGEOS.8xk
+run 24000000
+key-press apps
+key-press 2
+key-press enter
+run 48000000
+key-press enter
+key-press down
+key-press enter

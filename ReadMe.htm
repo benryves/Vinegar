@@ -1,0 +1,785 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head> 
+        <title>Vinegar</title>
+    </head>
+    <style>
+    #keymap {
+        margin-left: auto;
+        margin-right: auto;        
+    }
+    #keymap td {
+        width: 30px;
+        height: 30px;
+        border-left: 6px solid #CCCCCC; 
+        border-top: 6px solid #CCCCCC; 
+        border-right: 6px solid #333333; 
+        border-bottom: 6px solid #333333;
+        text-align: center;
+        background-color: #999999;
+        font-family: consolas, lucida console, courier new;
+        font-size: 11px;
+    }
+    #keymap td:hover {
+        border-left-color: #333333; 
+        border-top-color: #333333; 
+        border-right-color: #CCCCCC; 
+        border-bottom-color: #CCCCCC;       
+    }
+    #keymap td.blue {
+        background-color: #000099;
+        border-left-color: #0000CC; 
+        border-top-color: #0000CC; 
+        border-right-color: #000033; 
+        border-bottom-color: #000033; 
+        color: white;
+    }
+    #keymap td.blue:hover {
+        border-left-color: #000033; 
+        border-top-color: #000033; 
+        border-right-color: #0000CC; 
+        border-bottom-color: #0000CC;
+    }
+    body {
+        width: 600px;
+        background-color: #6699CC;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 50px;
+        font-family: trebuchet ms, verdana;
+        line-height: 18px;
+        font-size: 13px; 
+        margin-top: 20px;    
+    }
+    html {
+        background-color: #336699;
+    }
+    body p {
+        text-align: justify;
+    }
+
+    img.screenshot {
+        width: 192px;
+        height: 128px;
+        background-color: white;
+        padding: 1px;
+        border: 2px solid black;
+        margin-left: 201px;
+    }
+    img.animated {
+        width: 192px;
+        height: 128px;
+        background-color: white;
+        padding: 1px;
+        border: 2px solid black;
+        margin-left: 199px;
+    }
+    #gamegrid img {
+        border: 2px solid black;
+        padding: 2px;
+        background-color: #9999CC;
+        margin: 15px; 
+    }
+    #gamegrid {
+        padding-left: 26px;
+    }
+    #title {
+        text-align: center;
+    }
+    #title pre {
+        font-size: 16px;
+        line-height: 10px;
+        letter-spacing: -2px;
+        font-weight: bold;
+    }
+    #progkeys {
+        margin-left: auto;
+        margin-right: auto;
+        border-collapse: collapse;
+        background-color: #336699;
+        border: 2px solid black;
+        width: 600px;
+    }
+    #progkeys td, #progkeys th {
+        text-align: center;
+        padding: 2px;
+        border-bottom: 1px solid #333399;
+    }
+    #key {
+        background-color: #333333;
+        color: white;
+        font-family: consolas, lucida console, courier new;
+        border-top: 2px solid #666666;
+        border-left: 2px solid #666666;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;                     
+        font-size: 11px;
+        padding: 1px 3px 1px 3px;
+    }
+    #key.blue {
+        background-color: #000099;
+        border-top: 2px solid #0000CC;
+        border-left: 2px solid #0000CC; 
+    }
+    #key.white {
+        color: black;
+        background-color: #CCCCCC;
+        border-top: 2px solid #FFFFFF;
+        border-left: 2px solid #FFFFFF; 
+    }
+    #key.yellow {
+        color: black;
+        background-color: #CC9966;
+        border-top: 2px solid #EECC99;
+        border-left: 2px solid #EECC99; 
+    }
+    #key.green {
+        color: black;
+        background-color: #669966;
+        border-top: 2px solid #99CC99;
+        border-left: 2px solid #99CC99; 
+    }
+    #squashcomparison img {
+        background-color: white;
+        padding: 1px;
+        border: 2px solid black;
+    }
+    #squashcomparison th, #squashcomparison td {
+        width: 50%;
+        text-align: center;
+    }
+    #squashcomparison {
+        width: 100%;
+    }
+    #squashcomparison img {
+        width: 192px;
+        height: 128px;
+    }
+    a {
+        color: black;
+        text-decoration: none;
+        border-bottom: 1px black dotted;
+    }
+    a:hover {
+        color: white;
+        border-bottom-color: white;
+    }
+    ul {
+        margin-left: 20px;
+    }
+    #gamenotes {
+        border-collapse: collapse;
+    }
+    #gamenotes td {
+        text-align: justify;
+        line-height: 18px;
+        padding-left: 10px;
+        padding-right: 10px;
+  
+    }
+    #gamenotes h1 {
+        margin: 20px 10px 8px 10px;
+        text-align: center;
+        font-size: 16px;
+        border-top: 1px dotted black;
+        padding: 10px;
+    }
+    
+    #gamenotes img {
+        width: 96px;
+        height: 64px;
+        background-color: white;
+        padding: 1px;
+        border: 2px solid black;
+        margin-left: 249px;
+    }
+    #gamenotes p {
+        text-align: center;
+    }
+    #logo td, th {
+        width: 9px;
+        height: 9px;
+        padding: 0px;
+        margin: 2px;
+
+    }
+    #logo th {
+        background-color: black;
+    }
+    #logo {        
+        margin-left: auto;
+        margin-right: auto;
+    }
+    </style>
+    <body>
+    <div id="title">
+    <table id="logo">
+        <tr><th><th><td><td><td><th><td><td><th><td><th><th><th><th><th><td><th><th><th><th><th><td><th><th><th><th><th><td><td><th><th><th><th><td><th><th><th><th><th>
+        <tr><th><th><td><td><td><th><td><td><th><td><th><td><td><td><th><td><td><td><td><td><td><td><th><td><td><td><td><td><td><th><td><td><th><td><th><td><td><td><th>
+        <tr><td><th><td><td><th><td><td><td><th><td><th><td><td><td><th><td><th><th><th><td><td><td><th><td><td><td><th><td><td><th><th><th><th><td><th><th><th><th><th>
+        <tr><td><th><td><th><td><td><td><th><th><td><th><th><td><td><th><td><th><td><td><td><td><td><th><th><td><td><th><td><th><th><td><td><th><td><th><td><td><th><td>
+        <tr><td><td><th><td><td><td><td><th><th><td><th><th><td><td><th><td><th><th><th><th><th><td><th><th><th><th><th><td><th><th><td><td><th><td><th><td><td><th><th>
+    </table>
+    <h1>1.1</h1>
+    <h2>A MaxCoderz Production</h2>
+    <h3>Ben Ryves 2006</h3>
+    </div>
+    
+    <div id="gamegrid">
+    <script language="JavaScript">
+    var imagelist = new Array('15puzzle.gif','Alien.gif','Ant.gif','Blinky.gif','BlinkyS.gif','Blitz.gif','BMPviewer.gif','Breakout.gif','Brix.gif','C8Pic.gif','Car.gif','Cave.gif','Connect4.gif','Dragon1.gif','Dragon2.gif','Emutest.gif','Field.gif','Filter.gif','Fishie.gif','Guess.gif','Hidden.gif','IBM.gif','Invaders.gif','Joust.gif','Kaleid.gif','Maze.gif','MazeS.gif','Merlin.gif','Mines.gif','Missile.gif','Piper.gif','Pong.gif','Puzzle.gif','Race.gif','Rocket.gif','Rocket2.gif','Spacefight.gif','Square.gif','Squash.gif','Syzygy.gif','Tank.gif','Tapeworm.gif','Test.gif','Tetris.gif','Tictac.gif','UBoat.gif','UFO.gif','VBrix.gif','Vers.gif','Wall.gif','Wipeoff.gif','Worm3.gif');
+    var currentimages = new Array(0,1,2,3,4,5,6,7,8,9,10,11);
+    for (var i = 0; i < 12; ++i) document.write('<img src="Images/Games/' + imagelist[i] + '" id="gamegrid_' + i +  '"/>');
+    
+    var tochange = 0;
+    function randomimage() {
+        var newindex;
+        var iscurrent = true;
+        while (iscurrent) {
+            newindex = Math.floor(Math.random() * (imagelist.length - 1));
+            iscurrent = false;
+            for (var i = 0; i < 12; ++i) {
+                if (currentimages[i] == newindex) {
+                    iscurrent = true
+                    break;
+                }
+            }
+        }
+        currentimages[tochange] = newindex;
+        document.getElementById('gamegrid_' + tochange).src = 'Images/Games/' + imagelist[newindex];
+        ++tochange;
+        tochange %= 12;
+        setTimeout("randomimage()", 250);
+    }
+    randomimage();
+    </script>
+    </div>
+        
+    <h1>What is it?</h1>
+        <p>Vinegar is a CHIP-8 and SCHIP 'emulator'/interpreter.</p>
+        <p>CHIP-8 was a simple language interpreter found on some early home computers, and has a very small instruction set. The machines it ran on had a 64x32 resolution display; they also had a simple hex keypads (a 4x4 grid of keys 0 to F) for input, which might explain the odd key layout this program uses.</p>
+        <p>CHIP-8 was revisited in the 1990s thanks to an interpeter for the HP48 calculator. The instruction set was extended and the screen resolution doubled to 128x64, but is fully backwards compatible with the original CHIP-8. This is the "SUPER-CHIP" (SCHIP) part of this interpreter.</p>
+        <p>It is easy to find programs in CHIP-8 or SCHIP, and using the command script file included you can easily convert the files to a format that can be sent to your calculator.</p>
+    <h1>Features</h1>
+        <ul>
+            <li>Almost complete CHIP-8 and SCHIP opcode support.</li>
+            <li>128x64 SCHIP mode is either presented in pan-and-scan or squashed 96x64 resolution to fit it on the small calculator display.</li>
+            <li>Detailed configuration screen allows you to fine-tune speed of the simulation.</li>
+            <li>Sound.</li>
+            <li>Error trapping.</li>
+            <li>Quick-save and quick-load.</li>
+        </ul>
+    <h1>Limitations</h1>
+        <ul>
+            <li>No RCA-1802 emulation (the PC CHIP-8 emulators I've used ignore this as well).</li>
+            <li>As sound is done in software, emulation slows down when the sound is playing.</li>
+            <li>I have no idea what the HP48 flags are meant to do. You can copy registers V0 to V7 to and from them in Vinegar, so if a program uses them as temporary storage then that's all well and good.</li>
+            <li>As the CHIP-8 display is handled at a 1:1 resolution, not stretched to 2:1, half-pixel scrolls don't work.</li>
+        </ul>
+        
+        
+        <h1>Change Log</h1>
+    <ul><li>1.1</li><ul>
+        <li>Fixes</li><ul>
+            <li>16x16 sprite X-wrapping fixed.</li>
+            <li>More secure stack overflow protection.</li> 
+            <li>Converter only strips digits if they are the first character.</li>           
+            <li>Minor archive-related fixes.</li>
+        </ul>
+        <li>Features</li><ul>
+            <li>Options to disable x/y wrapping (I hadn't realised that <i>Blitz</i> didn't work with y-wrapping).</li>
+            <li>Load ROMs to $000, $200, or $600.</li>
+            <li>Little GUI tweaks (scrollbars).</li>
+            <li>Pause button.</li>
+            <li>Contrast adjustment.</li>
+            <li>Quick save/load state.</li>
+        </ul>
+    </ul><li>1.0</li><ul>
+        <li>Initial Release</li></ul>
+    </ul></ul>
+        
+        
+<h1>Usage</h1>
+        <p>This package comes with 3 binaries; one for TI-83, and two for TI-83 Plus. Send the one that best matches your calculator model and shell to your calculator using your linking program.</p>
+        <p>You won't be able to use this interpreter without having a few CHIP-8 programs installed. I've included a rather large number of them in the ROMs subfolder of this package. Both CHIP-8 and SCHIP programs are sent/run in the same way on the calculator, but I thought it best to split them into subfolders so you can tell the difference (for example) between the two versions of <i>Blinky</i>.</p>
+        <p>If you run the program, you should be able to see the installed program in a list, a bit like Ion's main view. Highlight the program you wish to start using the <span id="key" class="blue">&uarr;</span> and <span id="key" class="blue">&darr;</span> keys, then press <span id="key" class="yellow">2nd</span> or <span id="key" class="blue">Enter</span> to run it.</p>
+        <img align="center" class="screenshot "src="Images/gui.gif" />
+        <p>The key layout is a little odd; here is a CHIP-8 keypad and a TI-83 keypad for comparison.</p>
+        <table id="keymap">
+            <tr><th colspan="4">CHIP-8</th></tr>
+            <tr><td>1</td><td>2</td><td>3</td><td>C</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td><td>D</td></tr>
+            <tr><td>7</td><td>8</td><td>9</td><td>E</td></tr>
+            <tr><td>A</td><td>0</td><td>B</td><td>F</td></tr>                                    
+        </table>
+        <p />
+        <table id="keymap">
+            <tr><th colspan="4">TI-83</th></tr>
+            <tr><td>7</td><td>8</td><td>9</td><td class="blue">&times;</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td><td class="blue">-</td></tr>
+            <tr><td>1</td><td>2</td><td>3</td><td class="blue">+</td></tr>
+            <tr><td>0</td><td>.</td><td>(-)</td><td class="blue">Enter</td></tr>                                    
+        </table>
+        <p>If you set the <i>Alternate keys</i> option, Vinegar uses a different keymap, where 0-9 and A-F (Math-Prgm) are mapped directly to their CHIP-8 equivalents. Because the keys are no longer in a neat 4x4 grid, this would make games requiring directional input rather difficult (not to mention upside down).</p>
+        <p>The other keys for this program are:</p>
+        <table id="progkeys">
+            <tr><th>Key</th><th>Program selection</th><th>In-game</th><th>Settings</th></tr>
+            <tr><td><span id="key">Clear</span></td><td>Quit</td><td>End simulation</td><td>Return</td></tr>
+            <tr><td><span id="key">Mode</span></td><td>Quit</td><td>Invert colours</td><td></td></tr>
+            <tr><td><span id="key" class="yellow">2nd</span></td><td>Run</td><td></td><td>Toggle tickbox</td></tr>
+            <tr><td><span id="key" class="blue">Enter</span></td><td>Run</td><td></td><td>Toggle tickbox</td></tr>            
+            <tr><td><span id="key" class="green">Alpha</span></td><td>Settings</td><td>Settings</td><td>Return</td></tr>
+            <tr><td><span id="key" class="blue">&larr;</span>/<span id="key" class="blue">&rarr;</span></td><td></td><td>Scroll display</td><td>Change value</td></tr>        
+            <tr><td><span id="key" class="blue">&uarr;</span>/<span id="key" class="blue">&darr;</span></td><td>Change selection</td><td>Adjust Contrast</td><td>Change selection</td></tr>
+            <tr><td><span id="key">Del</span></td><td></td><td>Restart</td><td></td></tr>            
+            <tr><td><span id="key" class="blue">Y=</span></td><td></td><td></td><td>Set to 0</td></tr>
+            <tr><td><span id="key" class="blue">Window</span></td><td></td><td></td><td>Set to 50</td></tr>
+            <tr><td><span id="key" class="blue">Zoom</span></td><td></td><td></td><td>Set to 100</td></tr>
+            <tr><td><span id="key" class="blue">Trace</span></td><td></td><td>Quick load</td><td>Set to 150</td></tr>
+            <tr><td><span id="key" class="blue">Graph</span></td><td></td><td>Quick save</td><td>Set to 200</td></tr>
+            <tr><td><span id="key">&nbsp;,&nbsp;</span></td><td></td><td>Pause</td><td></td></tr>
+        </table>
+        <p>The settings screen (<span id="key" class="green">Alpha</span>) is very useful when it comes to setting the speed of the simulation.</p>
+        <p>Do note that the screen scrolls! There are several options off the bottom of the display that you will need to scroll down to get to.</p>
+        <img align="center" class="screenshot "src="Images/settings.gif" />
+        <p>The various options can be summarised thusly:</p>
+        <ul>
+            <li><b>Instruction delay</b> - the length of the delay after each instruction. This can be useful to throttle games that run too quickly.</li>
+            <li><b>Frame skip</b> - the number of instructions executed per frame.</li>
+            <li><b>Timer speed</b> - the speed of the CHIP-8 timers in Hertz.</li>
+            <li><b>Always refresh LCD</b> - refresh the LCD, regardless of whether a sprite was drawn or not. Disabling this makes the simulation faster, but makes the timing more inconsistent.</li>
+            <li><b>96x64 SCHIP mode</b> - enabling this squashes the display from pan-and-scan 128x64 mode to 96x64 mode. Due to the aliasing caused by the squashing, the squashing is altered slightly every other frame to create a greyscale effect. Therefore it is recommended that you leave <i>Always refresh LCD</i> enabled in this mode. Naturally, the squashing process slows the simulation down a little, so it is recommended that you use a larger frame skip.</li>            
+            <li><b>Invert colours</b> - draw as white-on-black, rather than black-on-white.</li>
+            <li><b>X/Y-Wrap sprites</b> - Sprites which are drawn off the display are, by default, wrapped around the display (see the paddle in <i>Brix</i> to see what I mean - if you scroll off the edge, it is wrapped to the other side of the display). Most games are happy with this setting (or expect it), but some games suffer graphics problems (<i>Rocket</i> has extra pixels on the left of the display) or are even unplayable (<i>Blitz</i> draws the buildings one pixel too tall, which wraps around to the top of the display and your 'plane crashes into them within the first couple of seconds of play). Be warned that adjusting this setting in-game can lead to sprites drawn before the switch not being erased correctly, so it is suggested that you restart (with <span id="key">Del</span>) afterwards.</li>
+            <li><b>Ignore errors</b> - if the simulation encounters an error (see below), do not display a prompt - just carry on. For some games, this doesn't appear to have an effect, but certain games depend on an unsupported instruction and will "crash" inside the simulation.</li>
+            <li><b>Enable sound</b> - when enabled, you can plug a pair of headphones via an adapter into the calculator's link port and hear the CHIP-8 beep.</li>            
+            <li><b>Load address</b> - either $000, $200 or $600. This is the address in memory the program is loaded to. By default, it should be loaded to $200. The ETI-660 required programs to start at $600, and one program, <i>Chip8Boot</i>, needs to be loaded to $000 (that program doesn't work in this interpreter).</li>
+            <li><b>Alternate keys</b> - switch to the secondary keypad layout, where 0-9 and A-F on the calculator map directly to 0-9 and A-F on the CHIP-8 system.</li>
+            
+        </ul>
+        <p>In terms of general speed settings, the fastest possible simulation is to have an <i>Instruction delay</i> of 0, a <i>Frame skip</i> of 255, and <i>Always refresh LCD</i> and sound disabled. The slowest is to have a delay of 255, a skip of 0, LCD refreshing and sound on.</p>
+        <p>Here is a comparison between the 128x64 and 96x64 SCHIP modes (the game is "Joust"):</p>
+        <table id="squashcomparison">
+            <tr>
+                <td><img src="Images/shrink_off.gif" /></td>
+                <td><img src="Images/Games/Joust.gif" /></td>
+            </tr>
+            <tr>
+                <th>128x64</th>
+                <th>96x64</th>
+            </tr>
+        </table>
+        <p>As you can see, when viewed at a native resolution, some parts of the display are hidden.</p>
+        <p>The timer speed only applies to games that use it (such as Joust) to throttle their speed. It is in Hertz; the original CHIP-8 was 60Hz.</p>
+        <p>Note that games can only check for it to go zero; if the emulation is running slowly (long delays, low frame skip, always refresh LCD) then it might reach zero a long time before the game gets a chance to read it. However, speeding up the emulation (low delays, high frame skip) will not cause this timer to finish earlier, and it caps the speed.</p>
+        <p>I calibrated the speed using a program on my PC to time the interrupt rate of my calculator (~110Hz), and it ticks at as close to 60Hz as you're going to get by default. Different hardware and battery levels will skew the rate slightly. I'd be interested to see how this works on a crystal-based calculator, as I believe you can adjust the rate of the interrupts more precisely.</p>        
+        <p>Last of all; if the screen sort of dithers to 50% and the simulation stops, this is because the game has requested that the emulation stops. (For example, when you die in <i>Ant</i>). Press <span id="key">Del</span> to restart (as usual). Vinegar pauses at this point rather than exit to the selection screen to let you quick load a saved state.</p>
+
+        <h1>Quick Save</h1>
+        <p>Vinegar supports a quick saving and loading mechanism. You can press <span id="key" class="blue">Graph</span> to save your current state, then <span id="key" class="blue">Trace</span> to instantly recall it.</p>
+        <img src="Images/save.gif" class="screenshot" />
+        <p>To save your current state, Vinegar needs to make a complete copy of the memory, screen image, registers, stack... everything! Therefore, as well as the 5KB it normally needs, it needs an extra ~5.5KB for the saved state. If you don't have that extra free RAM, Vinegar will still run, but won't allow you to save states.</p>
+        <p>When it has saved a state successfully, a small floppy disk icon appears in the bottom-right of the display for half a second or so. If it doesn't appear, it is because there is insufficient free RAM.</p>
+        <p>Loading recalls everything instantly - even if you're in another game. The saved state is cleared when you exit Vinegar, to save a bit of space on your calculator.</p>
+
+        <h1>Included Programs</h1>
+        <p>Here's a brief table describing the bundled software, first dealing with the CHIP-8 and then SCHIP programs.</p>
+        <div id="gamenotes">
+        <h1>15puzzle</h1>
+
+            <img src="Images/Games/15puzzle.gif" />
+            <p>Rearrange the tiles into the sequence 0-F. As this doesn't randomise, you need to mash the keys to rearrange them yourself. (See <i>Puzzle</i> for a better version).</p>
+            <p>Press a key in the 4x4 key grid to move the spacer there on-screen.</p>
+        
+        <h1>Blinky</h1>
+        
+            <img src="Images/Games/Blinky.gif" />
+            <p>Pacman clone. Eat all the pips in the maze, avoiding the ghosts.</p>
+            <p><span id="key" class="white">1</span>/<span id="key" class="white">2</span> for left/right, <span id="key" class="white">9</span>/<span id="key" class="white">6</span> for up/down.</p>
+        
+
+        <h1>Blitz</h1>
+        
+            <img src="Images/Games/Blitz.gif" />
+            <p>You must destroy the town's buildings. Your 'plane flies from left to right, going down one each pass. Make sure to disable sprite Y-wrapping before you run this game.</p>
+            <p><span id="key" class="white">5</span> to drop bombs, any key to skip menus/titles.</p>
+        
+        
+        <h1>Brix</h1>
+        
+            <img src="Images/Games/Brix.gif" />
+            <p>Arkanoid/Breakout clone. You must bounce the ball with your paddle to break the 'Brix'. You have 5 lives, make sure not to drop the ball!</p>
+            <p><span id="key" class="white">4</span> and <span id="key" class="white">6</span> to move the paddle.</p>
+        
+
+        <h1>Breakout</h1>
+        
+            <img src="Images/Games/Breakout.gif" />
+            <p>Breakout clone; modified version of <i>Brix</i> to give it graphics like the Atari 2600 game.</p>
+            <p><span id="key" class="white">4</span> and <span id="key" class="white">6</span> to move the paddle.</p>
+        
+        
+        <h1>C8Pic</h1>
+        
+            <img src="Images/Games/C8Pic.gif" />
+            <p>Displays "CHIP 8" with a border.</p>
+            <p></p>
+        
+        
+        <h1>Cave</h1>
+        
+            <img src="Images/Games/Cave.gif" />
+            <p>Guide the dot to end of the cave maze without bumping into a wall. One in motion, you cannot stop!</p>
+            <p><span id="key" class="white">4</span>/<span id="key" class="white">6</span> for left/right, <span id="key" class="white">8</span>/<span id="key" class="white">2</span> for up/down. <span id="key" class="blue">Enter</span> skips the title screen.</p>
+        
+        
+        <h1>Connect4</h1>
+        
+            <img src="Images/Games/Connect4.gif" />
+            <p>2-player game; take turns to drop coloured disks into the grid. First person to get 4 in a line (row, column or diagonal) wins. There is no win checking.</p>
+            <p><span id="key" class="white">4</span> and <span id="key" class="white">6</span> to move the cursor, <span id="key" class="white">5</span> to drop.</p>
+        
+
+        <h1>Filter</h1>
+        
+            <img src="Images/Games/Filter.gif" />
+            <p>Catch the drop coming from the pipe at the top of the screen with your paddle.</p>
+            <p><span id="key" class="white">4</span> and <span id="key" class="white">6</span> to move the paddle.</p>
+        
+
+        <h1>Fishie</h1>
+        
+            <img src="Images/Games/Fishie.gif" />
+            <p>Draws the logo to hap's <i>Fish 'N' Chips</i> emulator.</p>
+            <p></p>
+        
+
+        <h1>Guess</h1>
+        
+            <img src="Images/Games/Guess.gif" />
+            <p>Guessing game. Pick a number between 1 and 63. CHIP-8 displays several cards, press 5 if your number is on the card; any other key if your number isn't. At the end, CHIP-8 displays your number.</p>
+            <p><span id="key" class="white">5</span> for yes, any other key for no.</p>
+        
+        
+        <h1>Hidden</h1>
+        
+            <img src="Images/Games/Hidden.gif" />
+            <p>Memory game; uncover matching pairs of cards to win the game.<br /><a href="Documents/HIDDEN.txt" target="_blank">Documentation</a></p>
+            <p><span id="key" class="white">4</span>/<span id="key" class="white">6</span> for left/right, <span id="key" class="white">8</span>/<span id="key" class="white">2</span> for up/down. <span id="key" class="white">5</span> uncovers cards.</p>
+        
+        
+        <h1>IBM</h1>
+        
+            <img src="Images/Games/IBM.gif" />
+            <p>Draws the IBM logo.</p>
+            <p></p>
+        
+        
+        <h1>Invaders</h1>
+        
+            <img src="Images/Games/Invaders.gif" />
+            <p>Space Invaders clone. Shoot the aliens down before they land.</p>
+            <p><span id="key" class="white">4</span> and <span id="key" class="white">6</span> to move the gun, <span id="key" class="white">5</span> to fire/skip title screen.</p>
+        
+
+        <h1>Kaleid</h1>
+        
+            <img src="Images/Games/Kaleid.gif" />
+            <p>Little graphics program - enter a sequence of commands, then tell CHIP-8 to repeat them to generate a pattern.</p>
+            <p><span id="key" class="white">4</span>/<span id="key" class="white">6</span> for left/right, <span id="key" class="white">8</span>/<span id="key" class="white">2</span> for up/down. <span id="key" class="white">.</span> repeats the pattern you entered.</p>
+        
+
+        <h1>Maze</h1>
+        
+            <img src="Images/Games/Maze.gif" />
+            <p>Generates a random maze.</p>
+            <p></p>
+        
+
+
+        <h1>Merlin</h1>
+        
+            <img src="Images/Games/Merlin.gif" />
+            <p>Simon clone. A sequence is displayed, which you must memorise and play back. Each level adds one extra movement in the sequence. Getting a sequence wrong ends the game.</p>
+            <p><span id="key" class="white">4</span>, <span id="key" class="white">5</span>, <span id="key" class="white">1</span> and <span id="key" class="white">2</span> represent the 2x2 grid.</p>
+        
+
+        <h1>Missile</h1>
+        
+            <img src="Images/Games/Missile.gif" />
+            <p>Shoot the targets with the moving gun. Each shot makes your gun move faster.</p>
+            <p><span id="key" class="white">2</span> to fire.</p>
+        
+        
+        <h1>Pong</h1>
+        
+            <img src="Images/Games/Pong.gif" />
+            <p>Two player - bounce the ball between the paddles for points.</p>
+            <p><span id="key" class="white">7</span>/<span id="key" class="white">4</span> for player one, <span id="key" class="blue">&times;</span>/<span id="key" class="blue">-</span> for player 2.</p>
+        
+        
+        <h1>Puzzle</h1>
+        
+            <img src="Images/Games/Puzzle.gif" />
+            <p>4x4 tile puzzle - rearrange them into the order 0-F.</p>
+            <p><span id="key" class="white">4</span>/<span id="key" class="white">6</span> for left/right, <span id="key" class="white">8</span>/<span id="key" class="white">2</span> for down/up. Use the alternate keys mode!</p>
+        
+        
+        <h1>Rocket</h1>
+        
+            <img src="Images/Games/Rocket.gif" />
+            <p>Animated text bounces around the screen. Having sprite x-wrapping enabled draws two extra dots on the left of the display.</p>
+            <p></p>
+        
+
+        <h1>Rocket2</h1>
+        
+            <img src="Images/Games/Rocket2.gif" />
+            <p>Appears to be the second half of <i>Rocket</i>.</p>
+            <p><span id="key" class="blue">Enter</span> launches the rocket.</p>
+        
+
+        <h1>Squash</h1>
+        
+            <img src="Images/Games/Squash.gif" />
+            <p>Bounce a ball around a squash court with your paddle - try not to miss! Note that having sprite x-wrapping enabled results in an inverted paddle, but the game still appears to function.</p>
+            <p><span id="key" class="white">7</span> and <span id="key" class="white">4</span> for up/down.</p>
+        
+        
+        <h1>Syzygy</h1>
+        
+            <img src="Images/Games/Syzygy.gif" />
+            <p>Snake/Nibbles clone. Guide your snake to pick up the large zeroes for points without crashing into the walls or yourself. Each time you eat one, you get longer.</p>
+            <p><span id="key" class="white">1</span>/<span id="key" class="white">2</span> for left/right, <span id="key" class="white">9</span>/<span id="key" class="white">6</span> for up/down. <span id="key" class="blue">Enter</span> to start with walls, <span id="key" class="blue">+</span> to start without. Press <span id="key" class="white">(-)</span> to see your score at the end.</p>
+        
+        
+        
+        <h1>Tank</h1>
+        
+            <img src="Images/Games/Tank.gif" />
+            <p>You have 25 shells. Move around and shoot the moving target to get points. If you bump into the target, you lose 5 shells.</p>
+            <p><span id="key" class="white">4</span>/<span id="key" class="white">6</span> for left/right, <span id="key" class="white">8</span>/<span id="key" class="white">2</span> for down/up. <span id="key" class="white">5</span> fires. Use the alternate keys mode!</p>
+        
+
+        <h1>Tapeworm</h1>
+        
+            <img src="Images/Games/Tapeworm.gif" />
+            <p>Tron clone; guide the snake around and around, trying not to bump into yourself.</p>
+            <p><span id="key" class="white">4</span>/<span id="key" class="white">6</span> for left/right, <span id="key" class="white">8</span>/<span id="key" class="white">2</span> for up/down. <span id="key" class="blue">Enter</span> restarts or skips the title screen.</p>
+        
+
+
+        <h1>Tetris</h1>
+        
+            <img src="Images/Games/Tetris.gif" />
+            <p>Tetris clone. Slot the blocks together as they fall to keep going for as long as possible. Completely filled rows as removed.</p>
+            <p><span id="key" class="white">5</span>/<span id="key" class="white">6</span> for left/right, <span id="key" class="white">4</span> to rotate and <span id="key" class="white">1</span> to drop.</p>
+        
+
+        <h1>Tictac</h1>
+        
+            <img src="Images/Games/Tictac.gif" />
+            <p>2-player noughts and crosses board. You must line up 3 of your tokens before the other player to win. Take it in turns to play; wins are recorded.</p>
+            <p>Press a key on the 3x3 grid of keys 1-9 to place a token.</p>
+        
+        
+        <h1>UFO</h1>
+        
+            <img src="Images/Games/UFO.gif" />
+            <p>You have 15 missiles to fire; shoot the two UFOs for points. The large one is worth 5 points, the small one 15.</p>
+            <p><span id="key" class="white">4</span> shoots left, <span id="key" class="white">5</span> straight up and <span id="key" class="white">6</span> shoots right.</p>
+        
+        
+        <h1>VBrix</h1>
+        
+            <img src="Images/Games/VBrix.gif" />
+            <p>Another Breakout-themed game, this time the paddles moves vertically.</p>
+            <p><span id="key" class="white">4</span>/<span id="key" class="white">7</span> for up/down, <span id="key" class="white">1</span> to skip the title screen.</p>
+        
+        
+        <h1>Vers</h1>
+        
+            <img src="Images/Games/Vers.gif" />
+            <p>Two-player Tron game. Keep going for as long as possible without crashing into a wall or your opponent.</p>
+            <p>Player one: <span id="key" class="white">1</span>/<span id="key" class="white">0</span> for up/down, <span id="key" class="white">7</span>/<span id="key" class="white">8</span> for left/right. Player two: <span id="key" class="blue">&times;</span>/<span id="key" class="blue">-</span> for up/down, <span id="key" class="white">(-)</span>/<span id="key" class="blue">Enter</span> for left/right.</p>
+        
+
+        <h1>Wall</h1>
+        
+            <img src="Images/Games/Wall.gif" />
+            <p>Identical to Squash, but does not keep track of your lives.</p>
+            <p><span id="key" class="white">7</span> and <span id="key" class="white">4</span> for up/down.</p>
+        
+
+        <h1>Wipeoff</h1>
+        
+            <img src="Images/Games/Wipeoff.gif" />
+            <p>Another Breakout variant. Your score is displayed when the game is over.</p>
+            <p><span id="key" class="white">4</span> and <span id="key" class="white">6</span> to move the paddle.</p>
+        
+        
+        
+        <!-- /// -->
+        
+       <h1>Alien</h1>
+        
+            <img src="Images/Games/Alien.gif" />
+            <p>Space invaders clone.</p>
+            <p><span id="key" class="white">9</span>/<span id="key" class="blue">&times;</span> for left/right; <span id="key" class="white">0</span> to fire or skip the title screen.</p>
+        
+        
+        <h1>Ant</h1>
+        
+            <img src="Images/Games/Ant.gif" />
+            <p>Very cool platformer game.</p>
+            <p><span id="key" class="white">9</span>/<span id="key" class="blue">&times;</span> for left/right; <span id="key" class="white">0</span> to jump.</p>
+        
+
+        <h1>Blinky</h1>
+        
+            <img src="Images/Games/BlinkyS.gif" />
+            <p>High-res SCHIP version of the CHIP-8 game. Also adds double-sized pips (2 pixels tall) which allow you eat the ghosts for a limited time (better with sound).</p>
+            <p><span id="key" class="white">1</span>/<span id="key" class="white">2</span> for left/right, <span id="key" class="white">9</span>/<span id="key" class="white">6</span> for up/down.</p>
+        
+        
+        <h1>BMPviewer</h1>
+        
+            <img src="Images/Games/BMPviewer.gif" />
+            <p>Decodes and displays a headerless monochromatic BMP file.</p>
+            <p></p>
+        
+
+        <h1>Car</h1>
+        
+            <img src="Images/Games/Car.gif" />
+            <p>Simple racing game - avoid bumping into the walls or other cars..</p>
+            <p><span id="key" class="white">1</span>/<span id="key" class="white">2</span> for left/right.</p>
+        
+        
+        <h1>Dragon1</h1>
+        
+            <img src="Images/Games/Dragon1.gif" />
+            <p>Part of a demo of a <i>Double Dragon</i> spin-off.<br /><a href="Documents/DRAGON.txt" target="_blank">Documentation</a></p>
+            <p><span id="key" class="white">3</span>/<span id="key" class="white">(-)</span> for up/down, <span id="key" class="white">.</span>/<span id="key" class="blue">Enter</span> for left/right. <span id="key" class="white">7</span> punches, <span id="key" class="white">8</span> kicks.</p>           
+        
+        
+        <h1>Dragon2</h1>
+        
+            <img src="Images/Games/Dragon2.gif" />
+            <p>Second part of the Dragon demo.<br /><a href="Documents/DRAGON.txt" target="_blank">Documentation</a></p>
+            <p><span id="key" class="white">4</span>/<span id="key" class="white">6</span> for left/right, <span id="key" class="white">8</span>/<span id="key" class="white">2</span> for up/down. <span id="key" class="white">5</span> drops a bomb.</p>
+        
+        
+        <h1>Emutest</h1>
+        
+            <img src="Images/Games/Emutest.gif" />
+            <p>SCHIP emulation test ROM. Displays the problem that half-pixel scrolls are not supported.</p>
+            <p></p>
+        
+
+        <h1>Field</h1>
+        
+            <img src="Images/Games/Field.gif" />
+            <p>An asteroid-dodging game.</p>
+            <p><span id="key" class="white">1</span>/<span id="key" class="white">2</span> to apply thrust left/right (you move in the opposite direction), <span id="key" class="blue">&times;</span>/<span id="key" class="blue">-</span> to move up/down. <span id="key" class="white">7</span>/<span id="key" class="white">8</span>/<span id="key" class="white">4</span>/<span id="key" class="white">5</span> set the speed (from slowest to fastest).</p>
+        
+
+        <h1>Joust23</h1>
+        
+            <img src="Images/Games/Joust.gif" />
+            <p>Joust clone. You must attack the other soldiers by landing on their head. They will turn into an egg, which you collect for points. If they land on your head, you lose a life.<br /><a href="Documents/JOUST.txt" target="_blank">Documentation</a></p>
+            <p><span id="key" class="white">9</span>/<span id="key" class="blue">&times;</span> for left/right; <span id="key" class="white">0</span> to fly or skip screens.</p>
+        
+
+        <h1>Maze</h1>
+        
+            <img src="Images/Games/MazeS.gif" />
+            <p>High-resolution SCHIP version of the CHIP-8 maze generator.</p>
+            <p></p>
+        
+        
+        <h1>Mines</h1>
+        
+            <img src="Images/Games/Mines.gif" />
+            <p>Minesweeper clone. Clicking a square reveals the number of mines in the area around it, or blank if there are no mines. Clicking on a mined square loses the game.<br /><a href="Documents/MINES.txt" target="_blank">Documentation</a></p>
+            <p><span id="key" class="white">4</span>/<span id="key" class="white">6</span> for left/right or level up/down, <span id="key" class="white">8</span>/<span id="key" class="white">2</span> for up/down. <span id="key" class="white">5</span> checks a square. <span id="key" class="blue">&times;</span> flags a square as mined.</p>
+        
+        
+        <h1>Piper</h1>
+        
+            <img src="Images/Games/Piper.gif" />
+            <p>Pipe-mania clone. Plug the leak as fast as you can! Place pipe segments from the bottom of the stack on the left of screen.<br /><a href="Documents/HPIPER.txt" target="_blank">Documentation</a></p>
+            <p><span id="key" class="white">1</span>/<span id="key" class="white">2</span> for left/right, <span id="key" class="white">9</span>/<span id="key" class="white">6</span> for up/down. <span id="key" class="white">4</span>/<span id="key" class="white">7</span> places a pipe and selects a new pipe segment (7 is random, 4 is the segment on the right of the display). <span id="key" class="blue">Enter</span> makes the water flow faster.</p>
+        
+        
+        <h1>Race</h1>
+        
+            <img src="Images/Games/Race.gif" />
+            <p>Tunnel game, similar to Car. Avoid the walls of the tunnel for as long as possible.</p>
+            <p><span id="key" class="white">1</span>/<span id="key" class="white">2</span> for left/right.</p>
+        
+
+        <h1>Spacefight</h1>
+        
+            <img src="Images/Games/Spacefight.gif" />
+            <p>Space invaders clone.<br /><a href="Documents/SPACEFIG.txt" target="_blank">Documentation</a></p>
+            <p><span id="key" class="white">9</span>/<span id="key" class="blue">&times;</span> for left/right; <span id="key" class="white">0</span> to fire or skip screens/start.</p>
+        
+
+        <h1>Square</h1>
+        
+            <img src="Images/Games/Square.gif" />
+            <p>Lights-on game. Switch on every tile in the grid to complete the level. Press a tile toggles the status of it and squares above, below, left and right of it.<br /><a href="Documents/SQUARE.txt" target="_blank">Documentation</a></p>
+            <p><span id="key" class="white">4</span>/<span id="key" class="white">6</span> for left/right or level up/down, <span id="key" class="white">8</span>/<span id="key" class="white">2</span> for up/down. <span id="key" class="white">5</span> presses a tile.</p>
+        
+
+
+        <h1>Test</h1>
+        
+            <img src="Images/Games/Test.gif" />
+            <p>Emulator test. Pretty useless.</p>
+            <p></p>
+        
+
+        <h1>UBoat</h1>
+        
+            <img src="Images/Games/UBoat.gif" />
+            <p>Drop depth charges onto submarines for points within the time limit. <br /><a href="Documents/UBOAT.txt" target="_blank">Documentation</a></p>
+            <p><span id="key" class="white">1</span>/<span id="key" class="white">2</span>/<span id="key" class="white">3</span> set the speed of the ship (slowest to fastest). <span id="key" class="blue">+</span> drops a depth charge; <span id="key" class="blue">&times;</span> ends the current game. <span id="key" class="blue">Enter</span> restarts.</p>
+        
+        
+        <h1>Worm3</h1>
+        
+            <img src="Images/Games/Worm3.gif" />
+            <p>Another snake/nibbly clone; in this one, you rotate the direction the snake is heading in increments of 90&deg;.</p>
+            <p><span id="key" class="white">2</span>/<span id="key" class="white">3</span> to rotate left/right 90&deg; respectively.</p>
+        
+        <h1 />
+        
+        </div>
+        
+        <h1>Errors</h1>
+        <p>CHIP-8 is a high-level low-level language, and as such can potentially muck up whatever it is you are running it on.</p>
+        <p>Vinegar checks the stack level, data pointer, current instruction and program counter whenever it's about to use them for something potentially dangerous. If it senses that something is wrong, you'll end up with a screen like the following:</p>
+        <img align="center" class="screenshot "src="Images/error.gif" />
+        <p>The three reported value are program counter, opcode and index register. The different errors are:</p>
+        <ul>
+            <li><b>Instruction</b> - the current instruction is not recognised or supported.</li>
+            <li><b>Stack</b> - the stack has underflowed or overflowed. It is suggested that implementations support 16 levels; Vinegar has 64, so I hope that's enough.</li>            
+            <li><b>PC</b> - the program counter has ambled out of the ~3.5KB allowed memory space.</li>
+            <li><b>Data</b> - the program was about to copy data to memory outside of the allowed memory space.</li>            
+        </ul>
+        <p>You can disable this error screen on the settings page; beware that this will cause some simulated programs to 'crash' (there should be no danger to your calculator).</p>
+        <h1>Converting</h1>
+        <p>In the root of this zip file is a Windows application, <i>CHIP-8 Converter</i>. If you download a CHIP-8/SCHIP game you want to play on your calculator, drag-and-drop it on top of the EXE file and it will output two calculator files (8xp and 83p) for use with Vinegar.</p>
+        <p>If you feel bold and daring, run this program from your command-line with the syntax:</p>
+        <p><tt>"CHIP-8 Converter.exe" filename programname caption</tt></p>
+        <p>...where <i>filename</i> is the name of the CHIP-8 program, <i>programname</i> is the name of the program on the calculator, and <i>caption</i> is the caption displayed by Vinegar.</p>
+        <h1>Thanks</h1>
+        <ul>
+            <li><b>David Winter</b> - CHIP-8/SCHIP documentation, author of a lot of the bundled ROMs.</li>
+            <li><b>hap</b> - large font is from his <i>Fish 'N' Chips</i> emulator, the ROMs are also the ones bundled with said emulator.</li>                        
+        </ul>
+
+    </body>
+</html>
