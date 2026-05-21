@@ -19,12 +19,12 @@ _scr_offset
 +
 --		ld de,16
 		ld c,a
-		call _lcd_pause
+		call _lcd_busy
 		out ($10),a
 
 _screen_y
 		ld a,$80+16
-		call _lcd_pause
+		call _lcd_busy
 		out ($10),a
 _screen_height
 		ld b,32
@@ -52,14 +52,14 @@ _screen_x_end
 ; ===============================================================	
 _use_shrink
 	ld a,$07
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a
 	ld ixl,$80
 	ld a,$80
-	call _lcd_pause
+	call _lcd_busy
 --	out ($10),a
 
-	call _lcd_pause
+	call _lcd_busy
 	ld a,$20
 	out ($10),a
 	

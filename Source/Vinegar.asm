@@ -22,6 +22,7 @@
 ;+=============================================================+;
 
 
+
 ; ===============================================================
 ; Compile-time definitions
 ; ===============================================================
@@ -34,7 +35,6 @@ _gui_rows = 8
 ; ===============================================================
 ; Required Headers
 ; ===============================================================
-
 
 .include "Includes/headers.inc"
 
@@ -505,16 +505,17 @@ _file_header
 .if platform == ti83
 	.include "TI83.asm"
 .endif
-	
+
+
 _video_size = video_end - video_start
 _sprites_size = sprites_end - sprites_start
 _core_size = (core_end - core_start) - (_video_size + _sprites_size)
 _states_size = states_end - states_start
 
-;.echo "Core:    ",_core_size," bytes\n"
-;.echo "Video:   ",_video_size," bytes\n"
-;.echo "Sprites: ",_sprites_size," bytes\n"
-;.echo "States:  ",_states_size," bytes\n"
+.echo "Core:    ",_core_size," bytes\n"
+.echo "Video:   ",_video_size," bytes\n"
+.echo "Sprites: ",_sprites_size," bytes\n"
+.echo "States:  ",_states_size," bytes\n"
 
 ; ===============================================================
 ; Misc...
@@ -524,3 +525,5 @@ _banner
 
 
 .endmodule
+
+

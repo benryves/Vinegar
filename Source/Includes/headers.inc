@@ -26,7 +26,7 @@ platform	= [%PLATFORM%]
 
 .if platform == ti8x
 	; TI-83 Plus
-	.inclabels "ti83plus.lbl"
+	.include "ti83plus.inc"
 	.org $9D93
 	.db $BB,$6D
 	.define bcall(label) rst 28h \ .dw label
@@ -34,7 +34,8 @@ platform	= [%PLATFORM%]
 	.binarymode TI8X
 .elseif platform == ti83
 	; TI-83
-	.inclabels "ti83.lbl"
+	.include "ti83asm.inc"
+	.include "tokens.inc"
 	.org $9327
 	.define bcall(label) call label
 	.define bjump(label) jp label

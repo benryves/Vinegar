@@ -1,4 +1,4 @@
-<project name="Vinegar - CHIP-8 Emulator" version="2" expanded="True" binary="VINEGAR" source="Vinegar.asm">
+<project name="Vinegar - CHIP-8/SCHIP" version="2" expanded="True" binary="VINEGAR" source="Vinegar.asm">
   <build default="false">Build\TI-83 (Ion).cmd</build>
   <build default="false">Build\TI-83 Plus (Ion).cmd</build>
   <build default="true">Build\TI-83 Plus (MirageOS).cmd</build>
@@ -9,16 +9,7 @@
   <help file="tios_entrypoints.xml" />
   <help file="tios_values.xml" />
   <help file="z80.xml" />
-  <openfile>Vinegar.asm</openfile>
-  <openfile>Includes\headers.inc</openfile>
-  <openfile>Core.asm</openfile>
-  <openfile>Video.asm</openfile>
-  <openfile>States.asm</openfile>
-  <openfile>Sprites.asm</openfile>
-  <openfile>Build\Compile.cmd</openfile>
-  <openfile>Build\TI-83 Plus (Ion).cmd</openfile>
-  <openfile default="True">Build\TI-83 (Ion).debug</openfile>
-  <expandedfolder>\Bin</expandedfolder>
+  <openfile default="True">Vinegar.asm</openfile>
   <expandedfolder>\Build</expandedfolder>
   <expandedfolder>\Includes</expandedfolder>
   <expandedfolder>\Resources</expandedfolder>

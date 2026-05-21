@@ -70,7 +70,7 @@ _save_state
 
 	ld hl,_save_icon
 	ld a,$07
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a
 
 
@@ -78,19 +78,19 @@ _save_state
 	ld b,16
 	ld c,$80+(64-16)
 -	ld a,$20+10
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a
 	ld a,c
 	inc c
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a	
 	ld a,(hl)
 	inc hl
-	call _lcd_pause
+	call _lcd_busy
 	out ($11),a
 	ld a,(hl)
 	inc hl	
-	call _lcd_pause
+	call _lcd_busy
 	out ($11),a	
 	djnz {-}
 	ei
@@ -103,21 +103,21 @@ _save_state
 	ld b,16
 	ld c,$80+(64-16)	
 -	ld a,$20+10
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a
 	ld a,c
 	inc c
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a
 
 	xor a
-	call _lcd_pause
+	call _lcd_busy
 	out ($11),a
-	call _lcd_pause
+	call _lcd_busy
 	out ($11),a
 	djnz {-}	
 	ld a,$05
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a
 	ei
 	set _b_display_dirty

@@ -854,7 +854,7 @@ _set_contrast
 	ld (contrast),a
 	add a,$18
 	or $C0
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a
 
 _no_contrast
@@ -922,16 +922,12 @@ _crop_right
 ; ---------------------------------------------------------------
 ; Safe LCD pause
 ; ---------------------------------------------------------------
-.if platform == ti8x
-_lcd_pause = $B
-.else
-_lcd_pause
+_lcd_busy
 	push af
 	inc hl
 	dec hl
 	pop af
 	ret
-.endif
 
 ; ---------------------------------------------------------------
 ; Pointers used when copying data from RAM(hl)->registers(de)
@@ -1270,19 +1266,19 @@ _lcd_clear
 +
 	ld c,$20
 	ld a,$80
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a
 	
 --	ld a,c
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a
 	ld a,$80
-	call _lcd_pause
+	call _lcd_busy
 	out ($10),a	
 	ld a,e
 	ld b,64
 
--	call _lcd_pause
+-	call _lcd_busy
 	out ($11),a
 	djnz {-}
 
