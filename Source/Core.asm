@@ -827,10 +827,23 @@ _error_recover
 	set _b_display_dirty
 	pop af
 +	
+
+	cp skZoom
+	jr nz,{+}
+	push af
+	ld a,(iy+asm_Flag1)
+	xor 1<<_shrink_mode
+	ld (iy+asm_Flag1),a
+	call _lcd_clear
+	set _b_display_dirty
+	pop af
++	
+
 	bit _b_schip_video
 	jr z,_not_schip
 	cp skLeft \ call z,_crop_left
 	cp skRight \ call z,_crop_right
+	cp skWindow \ call z,_crop_reset
 _not_schip
 
 	cp skDown
@@ -904,8 +917,8 @@ _crop_left
 	ld a,(_scr_offset+1)
 	dec a
 	cp -1
-	jr z,{+}
-	ld (_scr_offset+1),a
+--	jr z,{+}
+-	ld (_scr_offset+1),a
 	set _b_display_dirty
 +	pop af
 	ret
@@ -914,11 +927,11 @@ _crop_right
 	ld a,(_scr_offset+1)
 	inc a
 	cp 5
-	jr z,{+}
-	ld (_scr_offset+1),a
-	set _b_display_dirty
-+	pop af
-	ret
+	jr {--}
+_crop_reset
+	push af
+	ld a,2
+	jr {-}
 ; ---------------------------------------------------------------
 ; Safe LCD pause
 ; ---------------------------------------------------------------
