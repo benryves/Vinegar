@@ -68,26 +68,20 @@ main
 	im 1
 	di
 	
+	bcall(_homeup)
+	
 	ld hl,5*1024+32
 	bcall(_EnoughMem)
 	jp nc,{+}
-	bcall(_homeup)
 	ld hl,_insufficient_ram
+_init_err
+	bcall(_PutS)
+	ld hl,_press_any_key
 	bcall(_PutS)
 -	bcall(_GetCSC)
 	or a
 	jr z,{-}
-	ret
-	
-_insufficient_ram
-.asc "Vinegar requires"
-.asc "~5KB free RAM to"
-.asc "run happily.    "
-.asc "Please free some"
-.asc "up before trying"
-.asc "to run it again."
-.asc "________________"
-.asc "Press any key.",0
+	jp _quit_from_rom_menu
 +
 
 	; Allocate 5KB
@@ -128,21 +122,9 @@ _cannot_save_state
 	ld ix,_file_header
 	call ionDetect
 	jr z,{+}
-	bcall(_homeup)
 	bcall(_newline)
 	ld hl,_no_progs
-	bcall(_PutS)
--	bcall(_GetCSC)
-	or a
-	jr z,{-}
-	ret
-_no_progs
-.asc "You must install"
-.asc "some CHIP8/SCHIP"
-.asc "games to use the"
-.asc "emulator.       "
-.asc "________________"
-.asc "Press any key.",0
+	jp _init_err
 +
 
 	
@@ -505,6 +487,23 @@ _file_header
 .if platform == ti83
 	.include "TI83.asm"
 .endif
+
+
+_insufficient_ram
+.asc "Vinegar requires"
+.asc "~5KB free RAM to"
+.asc "run happily.    "
+.asc "Please free some"
+.asc "up before trying"
+.asc "to run it again.",0
+_no_progs
+.asc "You must install"
+.asc "some CHIP8/SCHIP"
+.asc "games to use the"
+.asc "emulator.       ",0
+_press_any_key
+.asc "________________"
+.asc "Press any key.",0
 
 
 _video_size = video_end - video_start
